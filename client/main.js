@@ -84,3 +84,12 @@ Template.registerHelper('hasUserVoted', (collection, collectionId, direction) =>
 	if (direction === 'down') { return _.include(downVoted, Meteor.userId()) }
 	return _.include(appealVoted, Meteor.userId());
 });
+
+Template.registerHelper('truncate', function(amount, value) {
+
+    if (value.length > amount)
+        return value.substring(0, amount) + '...';
+    else
+        return value;
+
+});
